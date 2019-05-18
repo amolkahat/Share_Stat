@@ -16,7 +16,7 @@ def login(request):
         except:
             print("Error..")
 
-        if userid == 'janedone' and password == 'Secret123':
+        if userid == 'janedoe' and password == 'Secret123':
             return render(request, 'pages/home.html')
     return render(request, "pages/login.html")
 
