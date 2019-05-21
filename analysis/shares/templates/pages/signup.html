@@ -1,7 +1,61 @@
 {% include 'pages/index.html'%}
 
 {%block 'content'%}
-      <div class="row">
-        <h1>Signup</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+          <h2 class="text-center text-white mb-4">Bootstrap 4 Login Form</h2>
+          <div class="row">
+              <div class="col-md-6 mx-auto">
+                  <!-- form card login -->
+                  <div class="card rounded-0">
+                      <div class="card-header">
+                          <h3 class="mb-0">Sign Up</h3>
+                      </div>
+                      <div class="card-body">
+                          <form class="form" role="form" action="{%url 'signup'%}" method="POST">
+                            {%csrf_token%}
+                            {% if password_match %}
+                              <div class="form-group">
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                  {{warning}}
+                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                              </div>
+                              {%endif%}
+                              <div class="form-group">
+                                  <label for="uname1">Username</label>
+                                  <input type="text" class="form-control rounded-0" name="uname1" id="uname1" required>
+                                  <div class="invalid-feedback">Oops, you missed this one.</div>
+                              </div>
+                              <div class="form-group">
+                                  <label for="uname1">Email</label>
+                                  <input type="email" class="form-control rounded-0" name="email" id="email" required>
+                                  <div class="invalid-feedback">Oops, you missed this one.</div>
+                              </div>
+                              <div class="form-group">
+                                  <label>Password</label>
+                                  <input type="password" class="form-control rounded-0" name="pwd1" id="pwd1" required>
+                                  <div class="invalid-feedback">Enter your password too!</div>
+                              </div>
+                              <div class="form-group">
+                                  <label>Re enter Password</label>
+                                  <input type="password" class="form-control rounded-0" name="pwd2" id="pwd2" required>
+                                  <div class="invalid-feedback">Enter same password here!</div>
+                              </div>
+
+                              <button type="submit" class="btn btn-success float-right" id="btnSignUp">Sign Up</button>
+                          </form>
+                      </div>
+                      <!--/card-block-->
+                  </div>
+                  <!-- /form card login -->
+              </div>
+          </div>
+          <!--/row-->
       </div>
+    </div>
+  </div>
 {%endblock%}
